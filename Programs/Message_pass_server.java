@@ -16,34 +16,20 @@ public class Message_pass_server {
         try {
             ServerSocket serverSocket = new ServerSocket(9111);
             System.out.println("Server started. Waiting for client...");
-
-            // Accept client connection
             Socket clientSocket = serverSocket.accept();
             System.out.println("Connection Established with Client");
-
-            // Create input stream to receive message from client
             Scanner scanner = new Scanner(clientSocket.getInputStream());
             if (scanner.hasNextLine()) {
                 String clientMessage = scanner.nextLine();
                 System.out.println("Message received from client: " + clientMessage);
-
-                // Convert message to uppercase
                 String upperCaseMessage = clientMessage.toUpperCase();
-
-                // Create output stream to send modified message back to client
                 OutputStream outputStream = clientSocket.getOutputStream();
                 PrintWriter out = new PrintWriter(outputStream, true);
-
-                // Send the modified message (in uppercase) back to client
                 out.println(upperCaseMessage);
                 System.out.println("Sent uppercase message back to client: " + upperCaseMessage);
-
-                // Close resources
                 out.close();
                 outputStream.close();
             }
-
-            // Close scanner and socket
             scanner.close();
             clientSocket.close();
             serverSocket.close();

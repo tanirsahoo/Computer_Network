@@ -16,17 +16,11 @@ public class Message_pass_client {
         try {
             System.out.println("Client Started");
             Socket socket = new Socket("localhost", 9111);
-
-            // Get input from user
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter the String in Lower Case:");
             String msg = scanner.nextLine();
-
-            // Send message to server
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             out.println(msg);
-
-            // Receive response from server
             InputStream inputStream = socket.getInputStream();
             Scanner serverScanner = new Scanner(inputStream);
             if (serverScanner.hasNextLine()) {
@@ -35,8 +29,6 @@ public class Message_pass_client {
             } else {
                 System.out.println("No response from server.");
             }
-
-            // Close resources
             scanner.close();
             serverScanner.close();
             out.close();
