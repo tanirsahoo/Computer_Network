@@ -17,7 +17,8 @@ public class Multicast_client {
     public static void main(String[] args)throws IOException{
         try{
             InetAddress net = InetAddress.getByName("224.4.5.6") ;
-            MulticastSocket multicast = new MulticastSocket(4567);
+            MulticastSocket multicast = new MulticastSocket(3456);
+            multicast.joinGroup(net) ;
             byte[] bt = new byte[100];
             DatagramPacket packet = new DatagramPacket(bt , bt.length);
             multicast.receive(packet) ;
