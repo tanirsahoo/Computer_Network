@@ -15,7 +15,7 @@ import java.util.Random;
 public class gbn_receiver {
     private static final int WINDOW_SIZE = 5;
     private static final int PORT = 6565;
-    private static final double LOSS_PROBABILITY = 0.2; // 20% chance to lose a packet
+    private static final double LOSS_PROBABILITY = 0.2;
 
     public static void main(String[] args) {
         try {
