@@ -18,7 +18,7 @@ public class gbn_sender {
     private static final int WINDOW_SIZE = 5;
     private static final int PORT = 6565;
     private static final String HOST = "localhost";
-    private static final double ACK_LOSS_PROBABILITY = 0.2; // 20% chance to lose an ACK
+    private static final double ACK_LOSS_PROBABILITY = 0.2;
 
     public static void main(String[] args) {
         try {
